@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes morph {
+
+  0%,
+  100% {
+    border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
+  }
+
+  33% {
+    border-radius: 72% 28% 48% 48% / 28% 28% 72% 72%;
+  }
+
+  66% {
+    border-radius: 100% 56% 56% 100% / 100% 100% 56% 56%;
+  }
+}
+
+.blob {
+  overflow: hidden;
+  border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
+  /* background: url("https://res.cloudinary.com/dbqe3efk1/image/upload/v1732396417/f4348c20-36fd-461c-b62e-62c4c706af4e-removebg-preview_dde8kv.png"); */
+  /* background: url('/me.png'); */
+  background-size: cover;
+  background-position: center;
+  animation: morph 3.75s linear infinite;
+  transform: rotate(-10deg);
+}
+
+
+body {
+  margin: 0 !important;
+}
+
+.meie-script-regular {
+  font-family: "Meie Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.me-photo {
+  position: relative;
+  display: inline-block;
+}
+
+.me-photo::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 100%;
+  height: 80%;
+  border-radius: 5%;
+  border: 2px solid #a3e635;
+}
+
+.container-grids {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* Default 2-column layout */
+  grid-template-rows: 1fr;
+  /* Adjust height automatically */
+  gap: 10px;
+  /* Spacing between items */
+  grid-template-areas:
+    "a1"
+    "a2"
+    "a3"
+    "a4"
+    "a5"
+    "a6"
+    "a7";
+}
+
+/* Medium Screens (768px and up) */
+@media (min-width: 768px) {
+  .container-grids {
+    grid-template-columns: 1fr 1fr 1fr;
+    /* 3-column layout */
+    grid-template-rows: auto;
+    grid-template-areas:
+      "a1 a2 a5"
+      "a1 a3 a6"
+      "a4 a3 a7";
+  }
+}
+
+/* Large Screens (1024px and up) */
+@media (min-width: 1024px) {
+  .container-grids {
+    grid-template-columns: 1fr 1fr 1fr;
+    /* 3-column layout */
+    grid-template-rows: 1fr 1fr 1fr;
+    /* Equal row heights */
+    gap: 20px;
+    /* Increase spacing for larger screens */
+    grid-template-areas:
+      "a1 a2 a5"
+      "a1 a3 a6"
+      "a4 a3 a7";
+  }
+}
+
+.a1 {
+  grid-area: a1;
+}
+
+.a2 {
+  grid-area: a2;
+}
+
+.a3 {
+  grid-area: a3;
+}
+
+.a4 {
+  grid-area: a4;
+}
+
+.a5 {
+  grid-area: a5;
+}
+
+.a6 {
+  grid-area: a6;
+}
+
+.a7 {
+  grid-area: a7;
+}
+
+body {
+  transition-property: opacity, transform, filter, background;
+  transition-timing-function: ease-in-out;
+  transition-duration: 500ms;
+}
+
+.page-transition {
+  opacity: 0;
+  background: black !important;
+  transform: translateY(40px);
+  filter: blur(12px);
+}
+
+.scrollable-content {
+  scrollbar-width: none;
+}
+
+.scrollable-content::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable-content {
+  -ms-overflow-style: none;
+}
