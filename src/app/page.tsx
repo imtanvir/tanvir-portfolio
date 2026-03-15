@@ -50,7 +50,7 @@ const Home = () => {
             <img 
               src="/tanvir.jpg" 
               alt="Tanvir Parvej" 
-              className="w-full h-full object-cover object-top scale-x-[-1] brightness-90 contrast-110"
+              className="w-full h-full object-cover object-top brightness-90 contrast-110"
             />
           </div>
         </div>
