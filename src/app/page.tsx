@@ -7,56 +7,60 @@ const Home = () => {
 
   return (
     <section className="flex flex-col md:flex-row items-center justify-between min-h-screen px-5 md:px-20 bg-black text-white overflow-hidden">
-      {/* Left Content */}
-      <div className="flex flex-col items-start z-10">
-        <pre className="text-gray-600 font-mono text-lg md:text-xl">{`<html>`}</pre>
-        <pre className="text-gray-600 font-mono text-lg md:text-xl ps-4">{`<body>`}</pre>
+      
+      {/* Left Content: Text & Tags */}
+      <div className="flex flex-col items-start z-10 space-y-2">
+        <pre className="text-gray-600 font-mono text-sm md:text-base">{`<html>`}</pre>
+        <pre className="text-gray-600 font-mono text-sm md:text-base ps-4">{`<body>`}</pre>
         
-        <div className="ps-8 py-4">
-          <div className="flex items-baseline gap-4">
-            <pre className="text-gray-600 font-mono text-sm md:text-base">{`<h1>`}</pre>
-            <h1 className="text-6xl md:text-9xl font-Oswald font-bold leading-tight">
-              I am
-            </h1>
+        <div className="ps-8 py-2">
+          <div className="flex items-center gap-2">
+            <pre className="text-gray-600 font-mono text-xs md:text-sm">{`<h1>`}</pre>
+            <h1 className="text-6xl md:text-9xl font-Oswald font-bold leading-none">I am</h1>
           </div>
           
-          <h2 className="text-[#a3e635] text-6xl md:text-9xl font-Oswald font-bold leading-tight mt-[-20px]">
-            Tanvir Parvej
-            <span className="text-gray-600 font-mono text-sm md:text-base ms-4">{`</h1>`}</span>
-          </h2>
-        </div>
-
-        <div className="ps-8">
-          <pre className="text-gray-600 font-mono text-sm md:text-base">{`<p>`}</pre>
-          <div className="flex items-center gap-4 ps-6">
-            <h2 className="text-4xl md:text-7xl font-Oswald font-bold">A</h2>
-            <div className="text-4xl md:text-7xl font-Oswald font-bold">
-               <Designation />
-            </div>
+          <div className="flex items-end gap-2">
+            <h2 className="text-[#a3e635] text-6xl md:text-9xl font-Oswald font-bold leading-none">
+              Tanvir Parvej
+            </h2>
+            <pre className="text-gray-600 font-mono text-xs md:text-sm mb-2">{`</h1>`}</pre>
           </div>
-          <pre className="text-gray-600 font-mono text-sm md:text-base">{`</p>`}</pre>
         </div>
 
-        <pre className="text-gray-600 font-mono text-lg md:text-xl ps-4 mt-10">{`</body>`}</pre>
-        <pre className="text-gray-600 font-mono text-lg md:text-xl">{`</html>`}</pre>
+        <div className="ps-8 py-2">
+          <pre className="text-gray-600 font-mono text-xs md:text-sm">{`<p>`}</pre>
+          <div className="flex items-center gap-4 ps-6">
+            <h2 className="text-4xl md:text-7xl font-Oswald font-bold uppercase">
+              A <Designation />
+            </h2>
+          </div>
+          <pre className="text-gray-600 font-mono text-xs md:text-sm">{`</p>`}</pre>
+        </div>
+
+        <pre className="text-gray-600 font-mono text-sm md:text-base ps-4 mt-4">{`</body>`}</pre>
+        <pre className="text-gray-600 font-mono text-sm md:text-base">{`</html>`}</pre>
       </div>
 
-      {/* Right Content: The Fixed Image Area */}
+      {/* Right Content: Optimized Image Blob */}
       <div className="relative flex justify-center items-center w-full md:w-1/2 mt-10 md:mt-0">
-        <div className="relative w-[320px] h-[320px] md:w-[500px] md:h-[500px] flex items-center justify-center">
+        <div className="relative w-[350px] h-[350px] md:w-[550px] md:h-[550px]">
           
-          {/* Blob container with overflow hidden to clip the zoomed image */}
-          <div className="blob w-full h-full bg-gradient-to-r from-[#a3e635] via-lime-400 to-green-500 overflow-hidden">
+          {/* FIXED BLOB: 
+              - Removed 'flex' from the blob itself to prevent image shifting.
+              - Standardized w-full h-full.
+          */}
+          <div className="blob w-full h-full bg-gradient-to-r from-[#a3e635] via-lime-400 to-green-500 overflow-hidden border border-lime-400/30">
             
-            {/* 1. Removed scale-x-[-1] (which uses rotation logic).
-               2. Used style={{ transform: 'none' }} to override any inherited rotation.
-               3. Used min-w-[150%] to zoom without using the 'scale' property.
+            {/* IMAGE FIX:
+                - Used w-full h-full so it fills the blob exactly.
+                - object-top ensures your head is not cut off.
+                - Removed all scales/rotates.
             */}
             <img 
               src="/tanvir.jpg" 
               alt="Tanvir Parvej" 
-              style={{ transform: 'none' }} 
-              className="min-w-[150%] h-full object-cover object-center brightness-95 contrast-105"
+              className="w-full h-full object-cover object-top brightness-105 contrast-110"
+              style={{ transform: 'none' }}
             />
           </div>
         </div>
@@ -64,7 +68,6 @@ const Home = () => {
 
       <style jsx>{`
         .blob {
-          /* Using border-radius only for the shape, no rotation in the animation */
           border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
           animation: morph 8s ease-in-out infinite;
         }
