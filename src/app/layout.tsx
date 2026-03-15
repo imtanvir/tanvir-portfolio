@@ -66,8 +66,8 @@ export default function RootLayout({
                 <Link
                   isExternal
                   className="flex items-center gap-1 text-current"
-                  href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-                  title="nextui.org homepage"
+                  href="https://imtanvir.vercel.app/"
+                  title="Md. Tanvir Parvej Badhon"
                 >
                   <span className="text-default-600">
                     All rights reserved © 2026 {` - `}
