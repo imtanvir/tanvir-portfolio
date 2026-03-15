@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <section className="flex flex-col md:flex-row items-center justify-between min-h-screen px-5 md:px-20 bg-black text-white overflow-hidden">
-      {/* Left Content: Text & HTML Tags */}
+      {/* Left Content */}
       <div className="flex flex-col items-start z-10">
         <pre className="text-gray-600 font-mono text-lg md:text-xl">{`<html>`}</pre>
         <pre className="text-gray-600 font-mono text-lg md:text-xl ps-4">{`<body>`}</pre>
@@ -41,22 +41,27 @@ const Home = () => {
         <pre className="text-gray-600 font-mono text-lg md:text-xl">{`</html>`}</pre>
       </div>
 
-      {/* Right Content: Animated Image Blob */}
+      {/* Right Content: The Zoomed Blob Area */}
       <div className="relative flex justify-center items-center w-full md:w-1/2 mt-10 md:mt-0">
-        <div className="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px]">
-          {/* The Blob Background/Container */}
-          <div className="blob w-full h-full bg-gradient-to-r from-[#a3e635] via-lime-400 to-green-500 overflow-hidden shadow-2xl transition-all duration-500">
-            {/* The Image inside the blob */}
+        {/* Container defines the viewport */}
+        <div className="relative w-[320px] h-[320px] md:w-[500px] md:h-[500px] flex items-center justify-center">
+          
+          {/* The Blob with Overflow Hidden clips the oversized image */}
+          <div className="blob w-full h-full bg-gradient-to-r from-[#a3e635] via-lime-400 to-green-500 overflow-hidden flex items-center justify-center">
+            
+            {/* ZOOM METHOD: 
+               We use min-w-[160%] and min-h-[160%] to force the image to be larger than the blob.
+               Object-top-center keeps the focus on the upper part of the photo (the face).
+            */}
             <img 
               src="/tanvir.jpg" 
               alt="Tanvir Parvej" 
-              className="w-full h-full object-cover object-top brightness-90 contrast-110"
+              className="min-w-[160%] min-h-[160%] object-cover object-[center_20%] brightness-95 contrast-110"
             />
           </div>
         </div>
       </div>
 
-      {/* Custom Styles for the Blob Animation */}
       <style jsx>{`
         .blob {
           border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
