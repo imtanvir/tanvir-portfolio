@@ -21,12 +21,9 @@
 .blob {
   overflow: hidden;
   border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
-  /* background: url("https://res.cloudinary.com/dbqe3efk1/image/upload/v1732396417/f4348c20-36fd-461c-b62e-62c4c706af4e-removebg-preview_dde8kv.png"); */
-  /* background: url('/me.png'); */
   background-size: cover;
   background-position: center;
   animation: morph 3.75s linear infinite;
-  transform: rotate(-10deg);
 }
 
 
