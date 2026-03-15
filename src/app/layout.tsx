@@ -70,7 +70,7 @@ export default function RootLayout({
                   title="nextui.org homepage"
                 >
                   <span className="text-default-600">
-                    All rights reserved © 2024 {` - `}
+                    All rights reserved © 2026 {` - `}
                   </span>
                   <p className="text-[#a3e635]">Tanvir</p>
                 </Link>
