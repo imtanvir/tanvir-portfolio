@@ -40,7 +40,7 @@ const Home = () => {
       </div>
       <div className="relative w-[26rem] h-[26rem]">
         <div className="w-full h-full blob bg-gradient-to-r from-[#a3e635] via-lime-200 to-lime-50 absolute right-20">
-          <div className="w-2/3 h-full bg-[url('/tanvir.jpg')] object-cover object-center z-[99]"></div>
+          <div className="w-full h-full bg-[url('/tanvir.jpg')] object-cover object-center z-[99]"></div>
         </div>
       </div>
     </section>
